@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mindful Moments</title>
+    <link rel="stylesheet" href="writeastory.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("your_user_id"); // Replace with your EmailJS user ID
+        })();
+    </script>
+  <!-- Link Swiper's CSS -->
+
+</head>
+<body>
+     
+    <nav class="navbar">
+        <div class="logo">
+            <img src="mental.png" alt="mental Logo">
+            
+            <span class="main-title">Mindful Moments</span>
+            <span class="sub-title"> be kind to your mind</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="project.html">HOME</a></li>
+            <br>
+            <li><a href="BLOGS.html"> BLOGS </a></li>
+            <br>
+            <li><a href="Quiz.html"> QUIZ </a></li>
+            <br>
+            <li><a href="contactus.html"> CONTACT US </a></li>
+
+          
+        </ul>
+
+        
+    </nav>
+    <header class="hero">
+        <div class="overlay">
+            <h1>WRITE A STORY</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2>Share Your Personal Stories of Triumph</h2>
+        <p>It is possible to overcome the mental health problems, all it takes is a little willpower and some help. Share your stories of recovery & inspire people in overcoming their struggles of various kinds.</p>
+        <form action="/submit-your-story" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name (required)</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email (required)</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject">
+            </div>
+            <div class="form-group">
+                <label for="story">Share Story</label>
+                <textarea id="story" name="story"></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+
+    <script>
+        document.getElementById("storyForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from reloading the page
+
+            // Collect form data
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const story = document.getElementById("story").value;
+
+            // Send email using EmailJS
+            emailjs.send("your_service_id", "your_template_id", {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: story,
+                to_email: "shresthasuprima55@gmail.com" // Add the target email here
+            }).then(function(response) {
+                alert("Your story has been submitted successfully!");
+            }, function(error) {
+                alert("Failed to send email. Please try again.");
+            });
+        });
+    </script>
+<br>
+<footer>
+    <div class="footer-content">   
+        
+      
+        <div class="social-media">
+            <h4><u>Quick Links</u></h4>
+            <div class="social-icons">
+                <a href="project.html">HOME</a>
+                <br>
+                <a href="BLOGS.html"> BLOGS </a>
+                <br>
+                <a href="Quiz.html"> QUIZ </a>
+                <br>
+                <a href="contactus.html"> CONTACT US </a>
+    
+              
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Copyright © 2024 mindfulmoments.com All rights reserved.</p>
+        <p>Disclaimer: Content Provided by Mindful Moments serves as information purpose only and cannot be directed as a substitute for any type of professional medical advice...</p>
+    </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
